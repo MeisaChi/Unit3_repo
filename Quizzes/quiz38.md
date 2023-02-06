@@ -1,0 +1,61 @@
+## Code
+import matplotlib.pyplot as plt
+import random
+random.seed(0)
+
+class coordinate:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self)->str:
+        return f"[Coordinate Object] x:{self.x}, y:{self.y}"
+
+class city:
+    def __init__(self,name:str, location:coordinate):
+        self.name = name
+        self.location = location
+
+    def __repr__(self)->str:
+        return f"[City Object] City {self.name} is located at {self.location}"
+
+    def distance(self, cityB):
+        xa, ya = self.location.x, self.location.y
+        xb, yb = cityB.location.x, cityB.location.y
+        d = ((xa-xb)**2 + (ya-yb)**2)**(1/2)
+        return d
+
+class country:
+    def __init__(self, name:str):
+        self.name = name
+        self.cities = []
+
+    def add_city(self, new_city:city):
+        self.cities.append(new_city)
+
+    def __repr__(self):
+        return f"country objet {len(self.cities)}"
+
+japan = country(name="japan")
+x = []
+y = []
+places = []
+for name in ["Tokyo", "Yokohama", "Kawasaki", "Saitama", "Osaka", "Kyoto", "Nagoya", "Kobe", "Fukuoka", "Sapporo"]:
+    xaxis = random.randint(0, 100)
+    yaxis = random.randint(0, 100)
+    x.append(xaxis)
+    y.append(yaxis)
+    places.append(name)
+    rand_loc = coordinate(x=xaxis, y=yaxis)
+    ct = city(name=name, location=rand_loc)
+    japan.add_city(ct)
+
+plt.scatter(x, y)
+for i in range(10):
+    plt.annotate(places[i], (x[i], y[i]))
+plt.xlim(0, 100)
+plt.ylim(0, 100)
+plt.title("Map")
+plt.show()
+```
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Sceenshots/quiz38.png)
