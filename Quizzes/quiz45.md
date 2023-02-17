@@ -42,5 +42,5 @@ select sum(balance) from accounts group by account_id
 ```.py
 select * from customers where customer_id = 12 or customer_id = 13 or customer_id = 15 or customer_id = 17 or customer_id = 19
 ```
-![](https://github.com/MeisaChi/Unit3_repo/blob/main/Sceenshots/quiz45_answer.png)
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Sceenshots/quiz45_answers.png)
 
