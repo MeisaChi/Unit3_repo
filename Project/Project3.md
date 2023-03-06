@@ -22,6 +22,15 @@ I will design a program on Pycharm which will be showing a GUI interface, by usi
 
 ### Justification
 
+**Python (PyCharm)**
+
+**KivyMD**
+
+**SQLite**
+
+**Citations**
+
+
 ## Success criteria
 1. The application will be a well-designed GUI, with a login screen, sign-up screen, home screen, table screen and a adding screen.
 2. The application allows the user to login and logout, or register and the user data will be stored in a database.
