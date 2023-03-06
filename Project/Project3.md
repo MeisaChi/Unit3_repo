@@ -21,14 +21,12 @@ Considering the budgetary constrains of the client and the hardware requirements
 
 ## Success Criteria
 
-1. The solution provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours. 
-2. The solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. ```(SL: linear model)```
-3. The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
-4. ```(SL)```The Local samples are stored in a csv file.
-5. Create a prediction the subsequent 12 hours for both temperature and humidity.
-6. A poster summarizing the visual representations, model and analysis is created and communicated.
-
-
+1. The application will be a well-designed GUI, with a login screen, sign-up screen, home screen, table screen and a adding screen.
+2. The application allows the user to login and logout, or register and the user data will be stored in a database.
+3. The user information (password) in the database will be securely stored, encrypted using a hash system.
+4. The application will allow the user enter all attributes (category, brand, size, color, description, condition) for an item and add an item into the database 
+5. The application will allow the user to find a table of items, and remove items from the free store database.
+6. The application will allow the user to search for a specific attribute (category, brand, size, color, description, condition), and find an specific item.
 
 
 
@@ -57,9 +55,8 @@ Considering the budgetary constrains of the client and the hardware requirements
 | 9 | Write a test plan | The table for test plan | 15min | Feb 22 | B |
 | 10 | Using the database, create the sign up system | A program that allows the users to input their information and create a new account, inser it into the database | 20min | Feb 24 | C | 
 | 11 | Create a password hash system | A program that hashes the password for security when the data information is imported into the database | 30min | Feb 26 | C | 
+| 12 | Create a success criteria | Completed success criteria | 20min | Feb 27 | A | 
 
-
-| 12 | Write the existing tools    |make people being able to see the tools that we used| 10min         | Dec 13                 | C | 
 | 13 | Write the list of techniques used     |make people being able to know what techniques we used| 10min         | Dec 13                 | C | 
 | 14 | Write the Computational thinking part     |make people being able to know what kind of computational thinking we used| 45min         | Dec 13                 | C | 
 | 15       | Write the prptotype codes    |make people being able to know what we coded| 40min         | Dec 13                 | C | 
