@@ -58,6 +58,9 @@ I will design a program on Pycharm which will be showing a GUI interface, by usi
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/UML.jpg)
 **Fig.4** 
 
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/OOP.jpg)
+**Fig.5** 
+
 ## Test Plan
 | Description | Category | Input | Expected Output | Purpose | Success Criteria |
 |-|-|-|-|-|-|
