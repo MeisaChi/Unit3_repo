@@ -4,13 +4,16 @@
 ## Problem definition
 **Client:** A student from UWC ISAK Japan
 
-**Context:** 
+**Context:** UWC ISAK Japan has a free store, where anyone can leave their clothes and other items that they  to give, and anyone can take them for free. But there is so much stuff that it is difficult for the students to look through and check if they want anything from there! A teacher assigned a student in ISAK, who is our client for this program. The client tried everything - requesting for a larger free store, which hadn't worked because there is limited space in ISAK, she also tried sorting out and making the free store more visible, but everyday things were added and taken, that the free store went back to being messy in a week. The client wants a program that she can use on her MacBook which helps her and her schoolmates use the free store efficiently, as there are a lot of good resources there. She wants a well designed software so that it is easy for the students in ISAK to use.
 
 
-**Problem:** 
+**Problem:** The free store is unorganized, and difficult to use. As the client is a student, she wants the production cost to be as low as possible.
 
 
 ## Proposed Solution
+
+Considering the budget limitations and the context of the problem, the solution that I propose for the client is Python. Python 
+Considering the budgetary constrains of the client and the hardware requirements, the software tool that I proposed for this solution is Python. Python is open source, it is mature and supported in mutiple platforms (platform-independent) including macOS, Windows, Linux and can also be used to program the Arduino microprocessor 56. In comparison to the alternative C or C++, which share similar features, Python is a High level programming language (HLL) with high abstraction 7. For example, memory management is automatic in Python whereas it is responsability of the C/C++ developer to allocate and free up memory 7, this could result in faster applications but also memory problems. In addition a HLL language will allow me and future developers extend the solution or solve issues proptly.
 
 ## Design Statement
 
@@ -41,22 +44,24 @@
 
 
 ## Record of Tasks
-| Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
-|---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
-| 1       | Write the Problem context                        |Complete writing the problem context| 10min         | Nov 22                 | A         |
-| 2       | Write the Design Statement                        |Complete writing the design statement| 10min         | Nov 29                 | A         |
-| 3       | Created program for collecting data                   |   Create a program to collect room data and put them into a csv file   | 3hours         | Dec 2                 | C         |
-| 4       | Tested collecting data                     |  A list of datas and some issues to fix | 48hours         | Dec 7,8                 | C         |
-| 5       | Collect data                      |576 datas on the csv file  | 48hours         | Dec 10,11                 | C         |
-| 6       | Finalizing, fixing data                   |    A completed csv file available to use for graph | 2hours         | Dec 12                 | C         |
-| 7       | Creating code for creating graphs and predictions                  |A program that shows the graph for room/campus temp/hum, creates predictions and compares the 2 datas     | 3hours         | Dec 12                 | C         |
-| 8       | Work on writing criteria C                  |List the techniques used, explain some parts of the program| 1hour         | Dec 12                 | C         |
-| 9       | Write the Test plan     |The spreadsheet of test paln| 10min         | Dec 13                 | B         |
-| 10       | Write the way we store the data     |make people being able to know how we store the data| 10min         | Dec 13                 | B | 
-| 11       | Draw the flow chart and put the code with it|make people being able see the flowchart and code that we made| 30min         | Dec 13                 | B | 
-| 12       | Write the existing tools    |make people being able to see the tools that we used| 10min         | Dec 13                 | C | 
-| 13       | Write the list of techniques used     |make people being able to know what techniques we used| 10min         | Dec 13                 | C | 
-| 14       | Write the Computational thinking part     |make people being able to know what kind of computational thinking we used| 45min         | Dec 13                 | C | 
+| Task No | Planned Action | Planned Outcome | Time estimate | Target completion date | Criterion |
+|-|-|-|-|-|-|
+| 1 | Meet my client | A note of what the problem is and what the client wants | 20min | Feb 10 | A |
+| 2 | Write the Problem definition | Completed problem definition | 15min | Feb 11 | A |
+| 3 | Write the Design Statement | Completed design statement | 20mins | Feb 12 | A |
+| 4 | Draw the system diagram | Completed system diagram | 15mins | Feb 14 | B |
+| 5 | Draw the wirefram diagram | Completed wireframe diagram | 30mins | Feb 14 | B |
+| 6 | Create a database for login and sign up | A system where the client could login to their account or register a new account | 2hours | Feb 16 | C |
+| 7 | Creating the code for the login screen | A program that allows the users to either choose to login to the app and move to the Home Screen, or sign up and make a new account | 1hr | Feb 20 | C |
+| 8 | Create a database, import it to the project | A database with a table for users and items | 15mins | Feb 22 | C |
+| 9 | Write a test plan | The table for test plan | 15min | Feb 22 | B |
+| 10 | Using the database, create the sign up system | A program that allows the users to input their information and create a new account, inser it into the database | 20min | Feb 24 | C | 
+| 11 | Create a password hash system | A program that hashes the password for security when the data information is imported into the database | 30min | Feb 26 | C | 
+
+
+| 12 | Write the existing tools    |make people being able to see the tools that we used| 10min         | Dec 13                 | C | 
+| 13 | Write the list of techniques used     |make people being able to know what techniques we used| 10min         | Dec 13                 | C | 
+| 14 | Write the Computational thinking part     |make people being able to know what kind of computational thinking we used| 45min         | Dec 13                 | C | 
 | 15       | Write the prptotype codes    |make people being able to know what we coded| 40min         | Dec 13                 | C | 
 | 16       | Make a poster which explains what we did in the project    |make client being able to know the situation of temperature and humidity in Isak| 120min         | Dec 13                 | C | 
 | 17       | Make a video which explains the contents what we did for this project    |make people being able to know the work that we have been working on| 120min         | Dec 13                 | C | 
