@@ -11,17 +11,21 @@
 
 
 ## Proposed Solution
+
+Considering that the student has limited budget to solve the issue, and the context of the problem, the solution that I propose for the client is using Python, KivyMD and SQLite to create a GUI interface.
+
 ### Design Statement
 
-Considering the budget limitations and the context of the problem, the solution that I propose for the client is Python. Python 
-Considering the budgetary constrains of the client and the hardware requirements, the software tool that I proposed for this solution is Python. Python is open source, it is mature and supported in mutiple platforms (platform-independent) including macOS, Windows, Linux and can also be used to program the Arduino microprocessor 56. In comparison to the alternative C or C++, which share similar features, Python is a High level programming language (HLL) with high abstraction 7. For example, memory management is automatic in Python whereas it is responsability of the C/C++ developer to allocate and free up memory 7, this could result in faster applications but also memory problems. In addition a HLL language will allow me and future developers extend the solution or solve issues proptly.
+
+
+I will design a program on Pycharm which will be showing a GUI interface, by using languages : KivyMD, to design the GUI of the App and SQLite, to store the data. To solve the problem, I will be creating a program where the client and their target audiences can use to add items into the free store, look at the items in the free store and take items out of the freestore, on an App. When the client is adding items, they can enter specific datas (category, brand, size, color, description, condition) and that will be available to be shown in a table. The app will also allow require the user to login or create an account to access all the data. When creating the account, their username, password (securely stored) and email will be recorded on a database. This app will take a month (from Feb 10th to March 10th) to develop.
 
 ### Justification
 
 ## Success criteria
 1. The application will be a well-designed GUI, with a login screen, sign-up screen, home screen, table screen and a adding screen.
 2. The application allows the user to login and logout, or register and the user data will be stored in a database.
-3. The user information (password) in the database will be securely stored, encrypted using a hash system.
+3. The user information (password) in the database will be securely stored, encrypted using a hash system. The password will also be longer than 6 letters.
 4. The application will allow the user enter all attributes (category, brand, size, color, description, condition) for an item and add an item into the database 
 5. The application will allow the user to find a table of items, and remove items from the free store database.
 6. The application will allow the user to search for a specific attribute (category, brand, size, color, description, condition), and find an specific item.
@@ -31,6 +35,14 @@ Considering the budgetary constrains of the client and the hardware requirements
 
 
 **Fig.1** 
+
+## Test Plan
+| Description | Category | Input | Expected Output | Purpose | Success Criteria |
+|-|-|-|-|-|-|
+| Login Screen - Successful | Unit testing | A username and a password that exists in users | Transition to Home Screen, with thr username on top of the screen | To test if the user can successfully login to their accounts | 1,2 |
+| Login Screen - Failed | Unit testing | A username and a password that doesn't exist in users | An error message that tells that the username or password does not exist | To test the safety of the datas stored in the database | 2 |
+| Sign up screen - Successful | Unit testing | A username, email and a passwordx2 with 6 or more letters that doesn't exist in users | Transition to Login Screen, new user data saved into users, with a hashed password | To ensure the safety of the password, and test the adding process of user data into the users database | 1, 2, 3 |
+| Sign up screen - Failed | Unit testing | A password with less than 6 letters | Error message saying that the password has to be longer than 6 letters | To test that the user will not be able to set a password with less than 6 letters | 3 |
 
 
 ## Record of Tasks
