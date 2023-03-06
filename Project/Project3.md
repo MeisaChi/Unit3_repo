@@ -32,7 +32,7 @@ I will design a program on Pycharm which will be showing a GUI interface, by usi
 
 
 ## Success criteria
-1. The application will be a well-designed GUI, with a login screen, sign-up screen, home screen, table screen and a adding screen.
+1. The application will be a well-designed GUI, with availability to access the login screen, sign-up screen, home screen, table screen and an adding screen.
 2. The application allows the user to login and logout, or register and the user data will be stored in a database.
 3. The user information (password) in the database will be securely stored, encrypted using a hash system. The password will also be longer than 6 letters.
 4. The application will allow the user enter all attributes (category, brand, size, color, description, condition) for an item and add an item into the database 
@@ -42,8 +42,21 @@ I will design a program on Pycharm which will be showing a GUI interface, by usi
 
 # Criteria B: Design
 
-
+## System Diagram
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/System%20Diagram.png)
 **Fig.1** 
+
+## Wireframe Diagram
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/wireframe.jpg)
+**Fig.2** 
+
+## ER Diagram
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/ER.jpg)
+**Fig.3** 
+
+## UML Diagram
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/UML.jpg)
+**Fig.4** 
 
 ## Test Plan
 | Description | Category | Input | Expected Output | Purpose | Success Criteria |
@@ -52,7 +65,12 @@ I will design a program on Pycharm which will be showing a GUI interface, by usi
 | Login Screen - Failed | Unit testing | A username and a password that doesn't exist in users | An error message that tells that the username or password does not exist | To test the safety of the datas stored in the database | 2 |
 | Sign up screen - Successful | Unit testing | A username, email and a passwordx2 with 6 or more letters that doesn't exist in users | Transition to Login Screen, new user data saved into users, with a hashed password | To ensure the safety of the password, and test the adding process of user data into the users database | 1, 2, 3 |
 | Sign up screen - Failed | Unit testing | A password with less than 6 letters | Error message saying that the password has to be longer than 6 letters | To test that the user will not be able to set a password with less than 6 letters | 3 |
-
+| Adding data | Unit testing | Different inputs (strings) in the adding screen for values (category, brand, size, color, description) and an integer out put for the value of condition using a slider | To test the process of adding items, and have it adding it to the table of items in the database | 4 |
+| Data table | Unit testing | Table Screen | To test if the table shows up | 5 |
+| Removing items from data table | Unit testing | Pick an item from the table, press the take button | To test the removing process of an item from the items table | 5 |
+| Search items | Unit testing | Specific description of an attribute in the item | To test process of search bars where when the user searches for a specific word, the item with that attribute will come up | 6 |
+| Logging out | Unit testing | Press on 'Logout' in Home Screen | Transition to Login Screen, a pop up checking if the user really wants to log out | 1 |
+| Transition between screens | Unit testing | Pressing on buttons that are meant to change the screen | Transition to another screen | 1 |
 
 ## Record of Tasks
 | Task No | Planned Action | Planned Outcome | Time estimate | Target completion date | Criterion |
@@ -76,3 +94,13 @@ I will design a program on Pycharm which will be showing a GUI interface, by usi
 | 16       | Make a poster which explains what we did in the project    |make client being able to know the situation of temperature and humidity in Isak| 120min         | Dec 13                 | C | 
 | 17       | Make a video which explains the contents what we did for this project    |make people being able to know the work that we have been working on| 120min         | Dec 13                 | C | 
 
+
+# Criteria C: Development
+## Existing tools
+OOP paradigm
+KivyMD Library
+Relational databases
+SQLite, ORM
+
+## Python Code
+## KivyMD Code
