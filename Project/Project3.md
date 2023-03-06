@@ -64,16 +64,17 @@ I will design a program on Pycharm which will be showing a GUI interface, by usi
 ## Test Plan
 | Description | Category | Input | Expected Output | Purpose | Success Criteria |
 |-|-|-|-|-|-|
-| Login Screen - Successful | Unit testing | A username and a password that exists in users | Transition to Home Screen, with thr username on top of the screen | To test if the user can successfully login to their accounts | 1,2 |
+| Login Screen - Successful | Unit testing | A username and a password that exists in users | Transition to Home Screen, with thr username on top of the screen | To test if the user can successfully login to their accounts | 1, 2 |
 | Login Screen - Failed | Unit testing | A username and a password that doesn't exist in users | An error message that tells that the username or password does not exist | To test the safety of the datas stored in the database | 2 |
 | Sign up screen - Successful | Unit testing | A username, email and a passwordx2 with 6 or more letters that doesn't exist in users | Transition to Login Screen, new user data saved into users, with a hashed password | To ensure the safety of the password, and test the adding process of user data into the users database | 1, 2, 3 |
 | Sign up screen - Failed | Unit testing | A password with less than 6 letters | Error message saying that the password has to be longer than 6 letters | To test that the user will not be able to set a password with less than 6 letters | 3 |
-| Adding data | Unit testing | Different inputs (strings) in the adding screen for values (category, brand, size, color, description) and an integer out put for the value of condition using a slider | To test the process of adding items, and have it adding it to the table of items in the database | 4 |
-| Data table | Unit testing | Table Screen | To test if the table shows up | 5 |
-| Removing items from data table | Unit testing | Pick an item from the table, press the take button | To test the removing process of an item from the items table | 5 |
-| Search items | Unit testing | Specific description of an attribute in the item | To test process of search bars where when the user searches for a specific word, the item with that attribute will come up | 6 |
-| Logging out | Unit testing | Press on 'Logout' in Home Screen | Transition to Login Screen, a pop up checking if the user really wants to log out | 1 |
-| Transition between screens | Unit testing | Pressing on buttons that are meant to change the screen | Transition to another screen | 1 |
+| Adding data | Unit testing | Different inputs (strings) in the adding screen for values (category, brand, size, color, description) and an integer out put for the value of condition using a slider | The inputs saved into the items table in the database | To test the process of adding items, and have it adding it to the table of items in the database | 4 |
+| Data table | Unit testing | None | A screen with a visible table of the table items | To test if the table shows up | 5 |
+| Removing items from data table | Unit testing | Pick an item from the table, press the take button | The selected item from items will disappear from the visible and the database table | To test the removing process of an item from the items table | 5 |
+| Search items | Unit testing | Specific description of an attribute in the item | The item from items that include the searched word in any of the attribtes will show up | To test process of search bars where when the user searches for a specific word, the item with that attribute will come up | 6 |
+| Logging out | Unit testing | Press on 'Logout' in Home Screen | Transition to Login Screen, a pop up checking if the user really wants to log out | To test the transition in screens and the pop up | 1 |
+| Transition between screens | Integration testing | Pressing on buttons that are there to change the screen | Transition to another screen | Test to see that the user will be able to swift between different screens | 1 |
+| Run the application | System testing | All of the above | All of the above | Test to see that everything in the app is working | 1, 2, 3, 4, 5, 6 |
 
 ## Record of Tasks
 | Task No | Planned Action | Planned Outcome | Time estimate | Target completion date | Criterion |
