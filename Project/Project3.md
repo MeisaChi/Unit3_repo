@@ -11,28 +11,20 @@
 
 
 ## Proposed Solution
+### Design Statement
 
 Considering the budget limitations and the context of the problem, the solution that I propose for the client is Python. Python 
 Considering the budgetary constrains of the client and the hardware requirements, the software tool that I proposed for this solution is Python. Python is open source, it is mature and supported in mutiple platforms (platform-independent) including macOS, Windows, Linux and can also be used to program the Arduino microprocessor 56. In comparison to the alternative C or C++, which share similar features, Python is a High level programming language (HLL) with high abstraction 7. For example, memory management is automatic in Python whereas it is responsability of the C/C++ developer to allocate and free up memory 7, this could result in faster applications but also memory problems. In addition a HLL language will allow me and future developers extend the solution or solve issues proptly.
 
-## Design Statement
+### Justification
 
-
-
-## Success Criteria
-
+## Success criteria
 1. The application will be a well-designed GUI, with a login screen, sign-up screen, home screen, table screen and a adding screen.
 2. The application allows the user to login and logout, or register and the user data will be stored in a database.
 3. The user information (password) in the database will be securely stored, encrypted using a hash system.
 4. The application will allow the user enter all attributes (category, brand, size, color, description, condition) for an item and add an item into the database 
 5. The application will allow the user to find a table of items, and remove items from the free store database.
 6. The application will allow the user to search for a specific attribute (category, brand, size, color, description, condition), and find an specific item.
-
-
-
-
-
-
 
 
 # Criteria B: Design
