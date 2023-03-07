@@ -86,8 +86,14 @@ The advantage of using SQLite is that it is very simple and easy to use. SQLite 
 
 ## Database Storage 
 The data of the different user information and item information will be stored in a SQLite database 'project3db.db'.  
-
-
+### Users Database
+| id | email | password | username |
+|-|-|-|-|
+| 1 (int. primary key) | apple@apple (str) | pbkdf2_sha256$3000... (str) | apple (str) |
+### Items 
+| id | category | brand | size | color | description | condition |
+|-|-|-|-|-|-|-|
+| 1 (int. primary key) | shirt (str) | NIKE (str) | XXS (str) | White (str) | N/A (str) | 8 (int) |
 
 ## Test Plan
 | Description | Category | Input | Expected Output | Purpose | Success Criteria |
@@ -142,10 +148,10 @@ The data of the different user information and item information will be stored i
 
 # Criteria C: Development
 ## Existing tools
-OOP paradigm
-KivyMD Library
-Relational databases
-SQLite, ORM
+OOP paradigm  
+KivyMD Library  
+Relational databases  
+SQLite, ORM  
 
 ## Python Code
 ## KivyMD Code
