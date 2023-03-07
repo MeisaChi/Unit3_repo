@@ -68,6 +68,9 @@ The advantage of using SQLite is that it is very simple and easy to use. SQLite 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/OOP.jpg)
 **Fig.5** 
 
+## Flow diagrams
+
+
 ## Database Storage 
 The data of the different user information and item information will be stored in a SQLite database 'project3db.db'.  
 
