@@ -20,16 +20,17 @@ Considering that the student has limited budget to solve the issue, and the cont
 
 I will design a program on Pycharm which will be showing a GUI interface, by using languages : KivyMD, to design the GUI of the App and SQLite, to store the data. To solve the problem, I will be creating a program where the client and their target audiences can use to add items into the free store, look at the items in the free store and take items out of the freestore, on an App. When the client is adding items, they can enter specific datas (category, brand, size, color, description, condition) and that will be available to be shown in a table. The app will also allow require the user to login or create an account to access all the data. When creating the account, their username, password (securely stored) and email will be recorded on a database. This app will take a month (from Feb 10th to March 10th) to develop.
 
-### Justification
+## Justification
 
-**Python (PyCharm)**
+### Python
+One of the reason I chose Python is because it is one of the fastest-growing languages in the world, as it is considered as one of the best programming languages for machine learning[1]. As it is very easy to learn and simple, it would be easy for the client to use, without any complex systems, and also with it's simplicity it will be open for any further developers to improve my software. Another key points about Python is that as it is deeply supported by different communities[1], it has many different accessible libraries, which makes it really flexible. The flexibilities of possibilities in Python allows us developers to easily find and add different functions in our app. This solution includes functions in different fields such as an App, different screens, databases, and tables. These different functions are all available in Python, therefore I chose to provide a program using Python as a solution.
 
-**KivyMD**
+### KivyMD
 
-**SQLite**
+### SQLite
 
 **Citations**
-
+[1]
 
 ## Success criteria
 1. The application will be a well-designed GUI, with availability to access the login screen, sign-up screen, home screen, table screen and an adding screen.
@@ -81,22 +82,30 @@ I will design a program on Pycharm which will be showing a GUI interface, by usi
 |-|-|-|-|-|-|
 | 1 | Meet my client | A note of what the problem is and what the client wants | 20min | Feb 10 | A |
 | 2 | Write the Problem definition | Completed problem definition | 15min | Feb 11 | A |
-| 3 | Write the Design Statement | Completed design statement | 20mins | Feb 12 | A |
-| 4 | Draw the system diagram | Completed system diagram | 15mins | Feb 14 | B |
-| 5 | Draw the wirefram diagram | Completed wireframe diagram | 30mins | Feb 14 | B |
-| 6 | Create a database for login and sign up | A system where the client could login to their account or register a new account | 2hours | Feb 16 | C |
+| 3 | Write the Design Statement | Completed design statement | 20min | Feb 12 | A |
+| 4 | Draw the system diagram | Completed system diagram | 15min | Feb 14 | B |
+| 5 | Draw the wirefram diagram | Completed wireframe diagram | 30min | Feb 14 | B |
+| 6 | Create a login and sign up system | A system where the client could login to their account or register a new account | 2hours | Feb 16 | C |
 | 7 | Creating the code for the login screen | A program that allows the users to either choose to login to the app and move to the Home Screen, or sign up and make a new account | 1hr | Feb 20 | C |
-| 8 | Create a database, import it to the project | A database with a table for users and items | 15mins | Feb 22 | C |
+| 8 | Create a database, import it to the project | A database with a table for users and items | 15min | Feb 22 | C |
 | 9 | Write a test plan | The table for test plan | 15min | Feb 22 | B |
 | 10 | Using the database, create the sign up system | A program that allows the users to input their information and create a new account, inser it into the database | 20min | Feb 24 | C | 
 | 11 | Create a password hash system | A program that hashes the password for security when the data information is imported into the database | 30min | Feb 26 | C | 
 | 12 | Create a success criteria | Completed success criteria | 20min | Feb 27 | A | 
+| 13 | Wrok on my justifications for used tools | Completed Justifications | 1hr | Mar 1 | A | 
+| 14 | Wrok on my citations for justifications | Completed citation underneath justification | 5min | Mar 1 | A | 
+| 15 | Create a list of existing tools | Completed existing tools | 2min | Mar 1 | C | 
+| 16 | Create a home screen | A home screen that allows transition to other screens | 30min | Mar 1 | C | 
+| 17 | Create a table 'items' in the database | Table 'items' | 10min | Mar 1 | C | 
+| 18 | Create a adding data screen | A screen where the user can input different attributes and will be added into the table | 2hr | Mar 2 | C | 
+| 19 | Create a table screen | A screen where the user can check the table 'items', and remove items | 1hr | Mar 2 | C | 
+| 20 | Create a search bar 1/2 | A search bar where the user can input a attribute, and that will show up in the table screen | 30min | Mar 2 | C | 
+| 21 | Create a search bar 2/2 | A search bar where the user can input a attribute, and that will show up in the table screen | 1hr | Mar 3 | C |
+| 22 | Finalize the design of my app | A well-designed app that works | 1hr | Mar 3 | C |
+| 23 | Draw the ER diagram | Completed ER diagram | 15min | Mar 3 | B |
+| 24 | Draw the UML diagram for database | Completed UML diagram 1/2 | 15min | Mar 4 | B |
+| 24 | Draw the UML diagram for OOP | Completed UML diagram 2/2 | 30min | Mar 4 | B |
 
-| 13 | Write the list of techniques used     |make people being able to know what techniques we used| 10min         | Dec 13                 | C | 
-| 14 | Write the Computational thinking part     |make people being able to know what kind of computational thinking we used| 45min         | Dec 13                 | C | 
-| 15       | Write the prptotype codes    |make people being able to know what we coded| 40min         | Dec 13                 | C | 
-| 16       | Make a poster which explains what we did in the project    |make client being able to know the situation of temperature and humidity in Isak| 120min         | Dec 13                 | C | 
-| 17       | Make a video which explains the contents what we did for this project    |make people being able to know the work that we have been working on| 120min         | Dec 13                 | C | 
 
 
 # Criteria C: Development
