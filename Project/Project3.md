@@ -115,7 +115,12 @@ The data of the different user information and item information will be stored i
 | 22 | Finalize the design of my app | A well-designed app that works | 1hr | Mar 3 | C |
 | 23 | Draw the ER diagram | Completed ER diagram | 15min | Mar 3 | B |
 | 24 | Draw the UML diagram for database | Completed UML diagram 1/2 | 15min | Mar 4 | B |
-| 24 | Draw the UML diagram for OOP | Completed UML diagram 2/2 | 30min | Mar 4 | B |
+| 25 | Draw the UML diagram for OOP | Completed UML diagram 2/2 | 30min | Mar 4 | B |
+| 26 | Draw a flow diagram for Login Screen | Completed flow diagram 1/5 | 20min | Mar 5 | B |
+| 27 | Draw a flow diagram for Home Screen | Completed flow diagram 2/5 | 20min | Mar 5 | B |
+| 28 | Draw a flow diagram for Sign up Screen | Completed flow diagram 3/5 | 40min | Mar 5 | B |
+| 29 | Draw a flow diagram for Adding Screen | Completed flow diagram 4/5 | 20min | Mar 5 | B |
+| 30 | Draw a flow diagram for Table Screen | Completed flow diagram 5/5 | 20min | Mar 5 | B |
 
 
 
