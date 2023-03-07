@@ -151,4 +151,20 @@ SQLite, ORM
 ## KivyMD Code
 
 ## Screen Shots
+!()[https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Log.png]
+**Fig.11**
 
+!()[https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Reg.png]
+**Fig.12**
+
+!()[https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Home.png]
+**Fig.13**
+
+!()[https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_pop.png]
+**Fig.14**
+
+!()[https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Add.png]
+**Fig.15**
+
+!()[https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Tab.png]
+**Fig.16**
