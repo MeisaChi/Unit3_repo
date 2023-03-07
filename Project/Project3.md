@@ -143,6 +143,7 @@ The data of the different user information and item information will be stored i
 | 28 | Draw a flow diagram for Sign up Screen | Completed flow diagram 3/5 | 40min | Mar 5 | B |
 | 29 | Draw a flow diagram for Adding Screen | Completed flow diagram 4/5 | 20min | Mar 5 | B |
 | 30 | Draw a flow diagram for Table Screen | Completed flow diagram 5/5 | 20min | Mar 5 | B |
+| 31 | Take screen shots of different pages, upload them into github | Screenshots | 10min | Mar 6 | C |
 
 
 
