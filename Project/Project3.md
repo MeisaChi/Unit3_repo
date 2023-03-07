@@ -23,14 +23,16 @@ I will design a program on Pycharm which will be showing a GUI interface, by usi
 ## Justification
 
 ### Python
-One of the reason I chose Python is because it is one of the fastest-growing languages in the world, as it is considered as one of the best programming languages for machine learning[1]. As it is very easy to learn and simple, it would be easy for the client to use, without any complex systems, and also with it's simplicity it will be open for any further developers to improve my software. Another key points about Python is that as it is deeply supported by different communities[1], it has many different accessible libraries, which makes it really flexible. The flexibilities of possibilities in Python allows us developers to easily find and add different functions in our app. This solution includes functions in different fields such as an App, different screens, databases, and tables. These different functions are all available in Python, therefore I chose to provide a program using Python as a solution.
+One of the reason I chose Python is because it is one of the fastest-growing languages in the world, as it is considered as one of the best programming languages for machine learning[1]. Python runs very fast. As it is very easy to learn and simple, it would be easy for the client to use, without any complex systems, and also with it's simplicity it will be open for any further developers to improve my software. Another key points about Python is that as it is deeply supported by different communities[1], it has many different accessible libraries, which makes it really flexible. The flexibilities of possibilities in Python allows us developers to easily find and add different functions in our app. This solution includes functions in different fields such as an App, different screens, databases, and tables. These different functions are all available in Python, therefore I chose to provide a program using Python as a solution.
 
 ### KivyMD
+First, KivyMD is is free to use[2]. As well as Python, KivyMD also runs very fast. 
 
 ### SQLite
 
-**Citations**
-[1]
+**Citations**  
+1. “Top 10 Reasons Why Python is So Popular With Developers in 2023.” upGrad, 29 September 2022, https://www.upgrad.com/blog/reasons-why-python-popular-with-developers/. Accessed 1 March 2023.
+2. Rodriguez, Andres. “kivymd · PyPI.” PyPI, https://pypi.org/project/kivymd/. Accessed 1 March 2023.
 
 ## Success criteria
 1. The application will be a well-designed GUI, with availability to access the login screen, sign-up screen, home screen, table screen and an adding screen.
