@@ -820,4 +820,4 @@ Table Screen
 
 # Criteria D: Functionality
 ## Video
-[CLICK HERE FOR THE VIDEO] (https://drive.google.com/file/d/177-jWzYnUFv7vgIIbzfsTwuNgyqOW9We/view?usp=sharing)
+[CLICK HERE FOR THE VIDEO](https://drive.google.com/file/d/177-jWzYnUFv7vgIIbzfsTwuNgyqOW9We/view?usp=sharing)
