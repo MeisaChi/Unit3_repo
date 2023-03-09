@@ -148,6 +148,7 @@ The data of the different user information and item information will be stored i
 | 30 | Draw a flow diagram for Table Screen | Completed flow diagram 5/5 | 20min | Mar 5 | B |
 | 31 | Take screen shots of different pages, upload them into github | Screenshots | 10min | Mar 6 | C |
 | 32 | Write descriptions for pictures in github | Descriptions | 20min | Mar 7 | B |
+| 33 | Write descriptions for python codes | Descriptions | 20min | Mar 7 | C |
 
 
 
@@ -195,7 +196,597 @@ class database_worker:
 ```
 This is the python code that actually connects the database into the python file. Connection and cursor allows us to directly connect to the database, search is used for finding and bringing data from the database, save is for adding and uploading any data into the database, and close is for ending the connection between the python file and the database.
 
+### Home Screen
+```.py
+
+#Home Screen
+class HomeScreen(MDScreen):
+
+    user_name = None
+    dialog = None
+
+    def on_pre_enter(self, *args):
+        self.ids.welcome.text = f"Welcome, {self.user_name}"
+
+    def try_add(self):
+        print("User trying add data")
+        self.parent.current = "Data_Add"
+
+    def try_check(self):
+        print("User trying to access data")
+        self.parent.current = "Data_Check"
+
+    def try_logout(self):
+        if not self.dialog:
+            self.dialog = MDDialog(
+                title="Confirm logout",
+                text="Are you sure you want to logout?",
+                buttons=[
+                    MDFlatButton(
+                        text="CANCEL",
+                        theme_text_color="Custom",
+                        text_color="#A5D6E5",
+                        on_release=self.dialog_close,
+
+                    ),
+                    MDFlatButton(
+                        text="OK",
+                        theme_text_color="Custom",
+                        text_color="#A5D6E5",
+                        on_release=self.change_screen,
+
+
+                    ),
+                ],
+            )
+        self.dialog.open()
+
+    def dialog_close(self, *args):
+        self.dialog.dismiss(force=True)
+
+    def change_screen(self, *args):
+        self.dialog.dismiss(force=True)
+        self.parent.current="LoginScreen"
+
+```
+
+### Adding Screen
+```.py
+#Adding Screen
+class Data_Add(MDScreen):
+
+    def try_submit(self):
+        category = self.ids.Category.text
+        brand = self.ids.Brand.text
+        size = self.ids.Size.text
+        color = self.ids.Color.text
+        description = self.ids.Description.text
+        condition = self.ids.Condition.value
+        db = database_worker("project3db.db")
+        query = f"Insert into items(category, brand, size, color, description, condition) values('{category}','{brand}','{size}','{color}','{description}','{math.floor(condition)}')"
+        db.run_save(query)
+        db.close()
+        print("Submission")
+        self.parent.current = "HomeScreen"
+
+    def try_back(self):
+        self.parent.current = "HomeScreen"
+
+```
+
+### Table Screen
+```.py
+#Table Screen
+class Data_Check(MDScreen):
+
+    data_table = None
+
+    def update(self):
+        db = database_worker("project3db.db")
+        query = "SELECT * FROM items"
+        data = db.search(query)
+        db.close()
+        self.data_table.update_row_data(None, data)
+
+    def try_search(self):
+        if self.ids.searchtext.text:
+            db = database_worker("project3db.db")
+            searchword = self.ids.searchtext.text
+            query = f"SELECT * FROM items WHERE category='{searchword}' or brand='{searchword}' or size='{searchword}' or color='{searchword}' or description='{searchword}' or condition='{searchword}'"
+            data = db.search(query)
+            db.close()
+            self.data_table.update_row_data(None, data)
+        else:
+            self.update()
+
+    def try_remove(self):
+        rows_checked = self.data_table.get_row_checks()
+        print(rows_checked)
+        db = database_worker("project3db.db")
+        for r in rows_checked:
+            id = r[0]
+            query = f"delete from items where id={id}"
+            db.run_save(query)
+            db.close()
+            self.update()
+
+    def on_pre_enter(self, *args):
+        self.data_table = MDDataTable(
+            size_hint=(.7, .65),
+            pos_hint={"center_x": .5, "center_y": .5},
+            use_pagination=False,
+            check=True,
+            column_data=[("id", 40), ("Category", 40), ("Brand", 40), ("Size", 40), ("Color", 40), ("Description", 40), ("Condition", 40)]
+        )
+        self.data_table.bind(on_row_press=self.row_pressed)
+        self.data_table.bind(on_check_press=self.row_pressed)
+        self.add_widget(self.data_table)
+        self.update()
+
+    def row_pressed(self, table, row):
+        pass
+
+    def check_pressed(self, table, current_row):
+        pass
+
+    def try_back(self):
+        self.parent.current = "HomeScreen"
+```
+
+### Login Sreeen
+```.py
+#Login Screen
+class LoginScreen(MDScreen):
+
+    def try_login(self):
+        print("User trying to login")
+        uname = self.ids.uname.text
+        passwd = self.ids.passwd.text
+        query = f"select * from users where username = '{uname}' or email = '{uname}'"
+        db = database_worker("project3db.db")
+        results = db.search(query=query)
+        db.close()
+        if len(results)==1:
+            id, email, hashed, uname = results[0]
+            if check_password(user_password=passwd, hashed_password=hashed):
+                print("Login successful")
+                HomeScreen.user_name=uname
+                self.parent.current = "HomeScreen"
+            else:
+                self.ids.passwd.error = True
+                self.ids.uname.error = True
+        else:
+            self.ids.passwd.error = True
+            self.ids.uname.error = True
+
+    def try_register(self):
+        print("User trying registration")
+        self.parent.current = "SignupScreen"
+
+    def pass_peak(self):
+        if self.ids.passwd.password:
+            self.ids.passwd.password = False
+        else:
+            self.ids.passwd.password = True
+```
+
+### Signup Screen
+```.py
+#Sign up Screen
+class SignupScreen(MDScreen):
+
+    def try_submit(self):
+        uname = self.ids.uname.text
+        email = self.ids.email.text
+        passwd = self.ids.passwd.text
+        passwd_check = self.ids.passwd_check.text
+
+        if passwd != passwd_check:
+            self.ids.passwd_check.error = True
+        elif len(passwd)<=5:
+            self.ids.passwd.error = True
+        else:
+            hash = encrypt_password(passwd)
+            db = database_worker("project3db.db")
+            query = f"Insert into users(email, password, username) values('{email}','{hash}','{uname}')"
+            db.run_save(query)
+            db.close()
+            print("Registration complete")
+            self.parent.current = "LoginScreen"
+
+    def try_cancel(self):
+        self.parent.current = "LoginScreen"
+```
+
+### Running the App
+```.py
+class Project3(MDApp):
+    def build(self):
+        return
+
+test = Project3()
+test.run()
+```
+
 ## KivyMD Code
+
+### Screen Definitions
+```.py
+ScreenManager:
+    LoginScreen:
+        name:"LoginScreen"
+
+    SignupScreen:
+        name:"SignupScreen"
+
+    HomeScreen:
+        name:"HomeScreen"
+
+    Data_Add:
+        name:"Data_Add"
+
+    Data_Check:
+        name:"Data_Check"
+```
+
+### Login Screen
+```.py
+<LoginScreen>:
+    size:500,500
+    FitImage:
+        source:"Background.jpg"
+    MDCard:
+        size_hint:.8,.9
+        orientation: "vertical"
+        pos_hint: {"center_x":.5,"center_y":.5}
+        padding: dp(50) #distance between elements
+
+        MDLabel:
+            text:"Login"
+            font_style: "H3"
+            size_hint:1, .2
+            halign:"center"
+            pos_hint: {"center_x":.5,"center_y":.5}
+
+        MDTextField:
+            id:uname
+            hint_text:"Enter your username or email"
+            icon_left:"email"
+
+        MDBoxLayout:
+            size_hint: 1,.1
+            orientation:"horizontal"
+            MDTextField:
+                id:passwd
+                hint_text:"Enter your password"
+                icon_left:"key"
+                password: True
+                size_hint: .7,1
+                helper_text_mode: "on_error"
+                helper_text: "Username or password is incorrect"
+            MDIconButton:
+                icon: 'eye'
+                pos_hint: {"center_x":1,"center_y":.5}
+                on_press:root.pass_peak()
+
+        MDBoxLayout:
+            size_hint: 1,.2
+
+            MDRaisedButton:
+                id:login
+                text:"Login"
+                on_press: root.try_login()
+                size_hint:.2,.3
+                pos_hint: {"center_x":.5,"center_y":.6}
+                md_bg_color: "#A5D6E5"
+
+            MDLabel:
+                size_hint:.1,.3
+
+            MDRaisedButton:
+                id:signup
+                text:"Signup"
+                on_press: root.try_register()
+                size_hint:.2,.3
+                pos_hint: {"center_x":.5,"center_y":.6}
+                md_bg_color: "#A5D6E5"
+```
+
+### Signup Screen
+```.py
+<SignupScreen>:
+    size:500,500
+    FitImage:
+        source:"Background.jpg"
+
+    MDCard:
+        size_hint:.8,.9
+        orientation: "vertical"
+        pos_hint: {"center_x":.5,"center_y":.5}
+        padding: dp(50) #distance between elements
+
+        MDLabel:
+            text:"Register"
+            font_style: "H3"
+            size_hint:1, .1
+            halign:"center"
+            pos_hint: {"center_x":.5,"center_y":.5}
+
+        MDTextField:
+            id:uname
+            size_hint: 1,.1
+            hint_text:"Enter your username"
+            icon_left:"account"
+
+        MDTextField:
+            id:email
+            size_hint: 1,.1
+            hint_text:"Enter your email"
+            icon_left:"email"
+
+        MDTextField:
+            id:passwd
+            size_hint: 1,.1
+            hint_text:"Enter your password"
+            icon_left:"key"
+            password: True
+
+            helper_text_mode: "on_error"
+            helper_text: "The password is too short (minimum 6 letters)"
+
+        MDTextField:
+            id:passwd_check
+            size_hint: 1,.1
+            hint_text:"Confirm your password"
+            icon_left:"shield-key"
+            password: True
+
+            helper_text_mode: "on_error"
+            helper_text: "Password does not match"
+
+        MDBoxLayout:
+            size_hint: 1,.2
+
+            MDRaisedButton:
+                id:submit
+                text:"Submit"
+                on_press: root.try_submit()
+                size_hint:.3,.3
+                pos_hint: {"center_x":.5,"center_y":.5}
+                md_bg_color: "#A5D6E5"
+
+            MDLabel:
+                size_hint:.1,.3
+
+            MDRaisedButton:
+                id:cancel
+                text:"Cancel"
+                on_press: root.try_cancel()
+                size_hint:.3,.3
+                pos_hint: {"center_x":.5,"center_y":.5}
+                md_bg_color: "#A5D6E5"
+```
+
+### Home Screen
+```.py
+<HomeScreen>:
+    size:500,500
+    FitImage:
+        source:"Background.jpg"
+    MDCard:
+        size_hint:.8,.9
+        orientation: "vertical"
+        pos_hint: {"center_x":.5,"center_y":.5}
+        padding: dp(50) #distance between elements
+
+        MDLabel:
+            id:welcome
+            text:""
+            font_style: "H3"
+            size_hint:1, .1
+            halign:"center"
+            pos_hint: {"center_x":.5,"center_y":.5}
+
+        MDLabel:
+            text:"ISAK free store App"
+            size_hint:1, .1
+            font_size: 65
+            halign:"center"
+            pos_hint: {"center_x":.5,"center_y":.5}
+
+        MDIconButton:
+            icon: 'hanger'
+            pos_hint: {"center_x":.5,"center_y":.5}
+
+        MDBoxLayout:
+            size_hint: .8,.3
+            orientation: "vertical"
+            pos_hint: {"center_x":.5,"center_y":.5}
+
+            MDRaisedButton:
+                id:add
+                text:"Add item"
+                on_press: root.try_add()
+                size_hint:.7,.6
+                md_bg_color: "#A5D6E5"
+                pos_hint: {"center_x":.5,"center_y":.5}
+
+            MDLabel:
+                size_hint:.2,.1
+                pos_hint: {"center_x":.5,"center_y":.5}
+
+            MDRaisedButton:
+                id:delete
+                text:"Check / Take item"
+                on_press: root.try_check()
+                size_hint:.7,.6
+                md_bg_color: "#A5D6E5"
+                pos_hint: {"center_x":.5,"center_y":.5}
+
+            MDLabel:
+                size_hint:.2,.1
+                pos_hint: {"center_x":.5,"center_y":.5}
+
+            MDRaisedButton:
+                id:logout
+                text:"Logout"
+                on_press: root.try_logout()
+                size_hint:.7,.6
+                md_bg_color: "#A5D6E5"
+                pos_hint: {"center_x":.5,"center_y":.5}
+```
+
+### Adding Screen
+```.py
+<Data_Add>:
+    size:500,500
+    FitImage:
+        source:"Background.jpg"
+    MDCard:
+        size_hint:.8,.9
+        orientation: "vertical"
+        pos_hint: {"center_x":.5,"center_y":.5}
+        padding: dp(50) #distance between elements
+
+        MDBoxLayout:
+            size_hint:1,1
+            orientation:"vertical"
+
+            MDLabel:
+                text:"Add your item"
+                font_style: "H3"
+                size_hint:1, .2
+                halign:"center"
+                pos_hint: {"center_x":.5,"center_y":.5}
+
+            MDTextField:
+                id:Category
+                hint_text:"Category"
+                icon_left:"tshirt-v"
+
+            MDTextField:
+                id:Brand
+                hint_text:"Brand"
+                icon_left:"necklace"
+
+            MDTextField:
+                id:Size
+                hint_text:"Size"
+                icon_left:"move-resize-variant"
+
+            MDTextField:
+                id:Color
+                hint_text:"Color"
+                icon_left:"palette"
+
+            MDTextField:
+                id:Description
+                hint_text:"Description"
+                icon_left:"dots-horizontal"
+
+            MDBoxLayout:
+                size_hint:1,.1
+                orientation:"horizontal"
+
+                MDLabel:
+                    text: "Condition:"
+                    color: "#9D9E9E"
+
+                MDLabel:
+                    text: "Bad Condition"
+                    color: "#9D9E9E"
+
+                MDSlider:
+                    id:Condition
+                    min: 0
+                    max: 10
+                    value: 80
+                    hint_bg_color: "white"
+
+                MDLabel:
+                    text: "Good Condition"
+                    color: "#9D9E9E"
+
+            MDLabel:
+                text:""
+                size_hint:1,.1
+
+            MDBoxLayout:
+                size_hint:1,.1
+                orientation:"horizontal"
+
+                MDIconButton:
+                    id:back
+                    on_press: root.try_back()
+                    icon: 'arrow-left-bottom'
+                    pos_hint: {"center_x":0,"center_y":0}
+
+                MDLabel:
+                    text:""
+                    size_hint:.8,1
+
+                MDRaisedButton:
+                    id:submit
+                    text:"Submit"
+                    on_press: root.try_submit()
+                    pos_hint: {"center_x":1,"center_y":0}
+                    md_bg_color: "#A5D6E5"
+```
+
+### Table Screen
+```.py
+<Data_Check>:
+    size:500,500
+    FitImage:
+        source:"Background.jpg"
+    MDCard:
+        size_hint:.8,.9
+        orientation: "vertical"
+        pos_hint: {"center_x":.5,"center_y":.5}
+        padding: dp(50) #distance between elements
+
+        #search
+        MDBoxLayout:
+            size_hint:1,.16
+            orientation:"horizontal"
+            MDTextField:
+                id:searchtext
+                size_hint: .7,1
+                hint_text:"Search for any properties"
+                pos_hint: {"center_x":0,"center_y":1}
+
+            MDIconButton:
+                id:search
+                on_press: root.try_search()
+                icon: 'magnify'
+                pos_hint: {"center_x":1,"center_y":1}
+
+        MDLabel:
+            text:""
+            size_hint:1,.8
+
+        MDBoxLayout:
+            size_hint:1,.1
+            orientation:"horizontal"
+
+            MDIconButton:
+                id:back
+                on_press: root.try_back()
+                icon: 'arrow-left-bottom'
+                pos_hint: {"center_x":0,"center_y":0}
+
+            MDLabel:
+                text:""
+                size_hint:.8,1
+
+            MDRaisedButton:
+                id:submit
+                text:"Take"
+                on_press: root.try_remove()
+                size_hint: .1,.7
+                pos_hint: {"center_x":1,"center_y":0}
+                md_bg_color: "#A5D6E5"
+```
 
 ## Screen Shots from the app
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Log.png)
