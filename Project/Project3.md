@@ -159,6 +159,42 @@ Relational databases
 SQLite, ORM  
 
 ## Python Code
+
+### Imports
+```.py
+from kivymd.app import MDApp
+from kivymd.uix.datatables import MDDataTable
+from kivymd.uix.screen import MDScreen
+import sqlite3
+import math
+from secure_password import encrypt_password, check_password
+from kivymd.uix.button import MDFlatButton
+from kivymd.uix.dialog import MDDialog
+```
+This is the items that are imported into the python file. Most of them are from KivyMD, any extra components that I wanted to use. SQLite3 allows the program to connect to the database. Math is used for rounding (used later in sliders), and secure password is another file used for hashing and unhashing, checking the password.
+
+### Database worker
+```.py
+#database worker
+class database_worker:
+
+    def __init__(self, name):
+        self.connection = sqlite3.connect(name)
+        self.cursor = self.connection.cursor()
+
+    def search(self, query):
+        result = self.cursor.execute(query).fetchall()
+        return result
+
+    def run_save(self, query):
+        self.cursor.execute(query)
+        self.connection.commit()
+
+    def close(self):
+        self.connection.close()
+```
+This is the python code that actually connects the database into the python file. Connection and cursor allows us to directly connect to the database, search is used for finding and bringing data from the database, save is for adding and uploading any data into the database, and close is for ending the connection between the python file and the database.
+
 ## KivyMD Code
 
 ## Screen Shots from the app
