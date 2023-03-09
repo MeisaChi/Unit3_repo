@@ -56,18 +56,20 @@ This system diagram shows that the program gets an input from the keyboard, then
 
 ## Wireframe Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/wireframe.jpg)
-**Fig.2** This diagram, wireframe diagram 
+**Fig.2** This diagram, wireframe diagram shows all the screens in the app and which button leads to which screen.
 
 ## ER Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/ER.jpg)
-**Fig.3** 
+**Fig.3** The ER diagram shows the different tables 'users' and 'items' and it's different properties in the database 'project3db.db'
 
 ## UML Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/UML.jpg)
 **Fig.4** 
+This is a UML Diagram of the tables and it's attributes.
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/OOP.jpg)
 **Fig.5** 
+This is a UML diagram of the OOP classes used in the app. It shows the different classes and it's properties.
 
 ## Flow diagrams
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/LoginScreen.jpg)
@@ -145,6 +147,7 @@ The data of the different user information and item information will be stored i
 | 29 | Draw a flow diagram for Adding Screen | Completed flow diagram 4/5 | 20min | Mar 5 | B |
 | 30 | Draw a flow diagram for Table Screen | Completed flow diagram 5/5 | 20min | Mar 5 | B |
 | 31 | Take screen shots of different pages, upload them into github | Screenshots | 10min | Mar 6 | C |
+| 32 | Write descriptions for pictures in github | Descriptions | 20min | Mar 7 | B |
 
 
 
@@ -152,27 +155,36 @@ The data of the different user information and item information will be stored i
 ## Existing tools
 OOP paradigm  
 KivyMD Library  
-Relational databases  
+Relational databases   
 SQLite, ORM  
 
 ## Python Code
 ## KivyMD Code
 
-## Screen Shots
+## Screen Shots from the app
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Log.png)
 **Fig.11**
+Login Screen
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Reg.png)
 **Fig.12**
+Signup Screen
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Home.png)
 **Fig.13**
+Home Screen
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_pop.png)
 **Fig.14**
+Pop up for when the user is logging out
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Add.png)
 **Fig.15**
+Adding items Screen
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Tab.png)
 **Fig.16**
+Table Screen
+
+# Criteria D: Functionality
+## Video
