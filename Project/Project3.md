@@ -74,18 +74,23 @@ This is a UML diagram of the OOP classes used in the app. It shows the different
 ## Flow diagrams
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/LoginScreen.jpg)
 **Fig.6**
+Flow diagram for the login screen
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SignupScreen.jpg)
 **Fig.7**
+Flow diagram for the Signup screen
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/HomeScreen.jpg)
 **Fig.8**
+Flow diagram for the Home screen
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/Data_Add.jpg)
 **Fig.9**
+Flow diagram for the Adding data screen
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/Data_Check.jpg)
 **Fig.10**
+Flow diagram for the Table screen
 
 ## Database Storage 
 The data of the different user information and item information will be stored in a SQLite database 'project3db.db'.  
@@ -148,8 +153,8 @@ The data of the different user information and item information will be stored i
 | 30 | Draw a flow diagram for Table Screen | Completed flow diagram 5/5 | 20min | Mar 5 | B |
 | 31 | Take screen shots of different pages, upload them into github | Screenshots | 10min | Mar 6 | C |
 | 32 | Write descriptions for pictures in github | Descriptions | 20min | Mar 7 | B |
-| 33 | Write descriptions for python codes | Descriptions | 20min | Mar 7 | C |
-
+| 33 | Write descriptions for python codes | Descriptions | 2hr | Mar 7 | C |
+| 34 | Write descriptions for kivy codes | Descriptions | 1hr | Mar 8 | C |
 
 
 # Criteria C: Development
@@ -249,6 +254,7 @@ class HomeScreen(MDScreen):
         self.parent.current="LoginScreen"
 
 ```
+This is the code used for the Home Screen. user_name is uploaded from the LoginScreen, which then later when the username is sent,  on_pre_enter will allow the program to show "Welcome, (username)" on the screen. The next 3 functions, add, check and logout are connected to each buttons so when they are pressed, it will move onto a new screen. The logout button is a little bit more complicated than that, as it shows a dialog. The function is saying that if there is no dianog, (that's why there is a 'dialog = None' at the start) MD Dialog will be called. The title, and the text is just text but the title is bigger. The 2 MD FlatButtons are the cancel and the ok buttons, and they both lead to another function which is written below when they are pressed and released. Cancel button leads to the dialog_close function, which basically closes the dialog, and OK will lead to change_screen, which also closes the dialog and changes the current screen back to login screen.
 
 ### Adding Screen
 ```.py
