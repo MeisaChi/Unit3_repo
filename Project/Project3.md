@@ -16,8 +16,6 @@ Considering that the student has limited budget to solve the issue, and the cont
 
 ### Design Statement
 
-
-
 I will design a program on Pycharm which will be showing a GUI interface, by using languages : KivyMD, to design the GUI of the App and SQLite, to store the data. To solve the problem, I will be creating a program where the client and their target audiences can use to add items into the free store, look at the items in the free store and take items out of the freestore, on an App. When the client is adding items, they can enter specific datas (category, brand, size, color, description, condition) and that will be available to be shown in a table. The app will also allow require the user to login or create an account to access all the data. When creating the account, their username, password (securely stored) and email will be recorded on a database. This app will take a month (from Feb 10th to March 10th) to develop.
 
 ## Justification
@@ -50,24 +48,26 @@ The advantage of using SQLite is that it is very simple and easy to use. SQLite 
 
 ## System Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/System%20Diagram.png)
-**Fig.1**  
-This system diagram shows that the program gets an input from the keyboard, then the Mac computer uses existing tools to configurate the inputs to create the output which is the GUI screen.
+**Fig.1** *System diagram for the ISAK Free Store App.*  
+Shows the connection between the input, output and the program. The program gets an input from the user input on keyboard, which is transfered to the computer, then the Mac computer uses Python (includes Pycharm, KivyMD and SQLite) to configurate the inputs. When the program runs, the GUI screen is shown on the computer screeen as an output.
 
 ## Wireframe Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/wireframe.jpg)
-**Fig.2** This diagram, wireframe diagram shows all the screens in the app and which button leads to which screen.
+**Fig.2** *Wireframe diagram for the ISAK Free Store App.*  
+Shows all the screens and the connections between the different screen, which is basically which button leads to which screen.
 
 ## ER Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/ER.jpg)
-**Fig.3** The ER diagram shows the different tables 'users' and 'items' and it's different properties in the database 'project3db.db'
+**Fig.3** *ER diagram for the database in ISAK Free Store App.*  
+The ER diagram shows the different tables 'users' and 'items' and it's different properties in the database 'project3db.db', and it's connection to each other.
 
 ## UML Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/UML.jpg)
-**Fig.4** 
+**Fig.4** *UML diagram for the database in ISAK Free Store App.*  
 This is a UML Diagram of the tables and it's attributes.
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/OOP.jpg)
-**Fig.5** 
+**Fig.5** *UML diagram for the OOP classes in ISAK Free Store App.*  
 This is a UML diagram of the OOP classes used in the app. It shows the different classes and it's properties.
 
 ## Flow diagrams
@@ -167,6 +167,7 @@ SQLite, ORM
 
 ### Imports
 ```.py
+#imports
 from kivymd.app import MDApp
 from kivymd.uix.datatables import MDDataTable
 from kivymd.uix.screen import MDScreen
@@ -180,7 +181,7 @@ This is the items that are imported into the python file. Most of them are from 
 
 ### Database worker
 ```.py
-#database worker
+**#database worker
 class database_worker:
 
     def __init__(self, name):
@@ -196,30 +197,34 @@ class database_worker:
         self.connection.commit()
 
     def close(self):
-        self.connection.close()
+        self.connection.close()**
 ```
 This is the python code that actually connects the database into the python file. Connection and cursor allows us to directly connect to the database, search is used for finding and bringing data from the database, save is for adding and uploading any data into the database, and close is for ending the connection between the python file and the database.
 
 ### Home Screen
 ```.py
-
 #Home Screen
 class HomeScreen(MDScreen):
 
+    #defining for later use
     user_name = None
     dialog = None
 
+    #sets up the welcome message before the screen is opened
     def on_pre_enter(self, *args):
         self.ids.welcome.text = f"Welcome, {self.user_name}"
 
+    #transition to DA
     def try_add(self):
         print("User trying add data")
         self.parent.current = "Data_Add"
 
+    #transition to DC
     def try_check(self):
         print("User trying to access data")
         self.parent.current = "Data_Check"
 
+    #shows dialogue, checking whether the user really wants to logout
     def try_logout(self):
         if not self.dialog:
             self.dialog = MDDialog(
@@ -245,13 +250,14 @@ class HomeScreen(MDScreen):
             )
         self.dialog.open()
 
+    #for above option: NO, closes the dialog
     def dialog_close(self, *args):
         self.dialog.dismiss(force=True)
 
+    #for above option: YES, closes the dialog, move to the next screen
     def change_screen(self, *args):
         self.dialog.dismiss(force=True)
         self.parent.current="LoginScreen"
-
 ```
 This is the code used for the Home Screen. user_name is uploaded from the LoginScreen, which then later when the username is sent,  on_pre_enter will allow the program to show "Welcome, (username)" on the screen. The next 3 functions, add, check and logout are connected to each buttons so when they are pressed, it will move onto a new screen. The logout button is a little bit more complicated than that, as it shows a dialog. The function is saying that if there is no dianog, (that's why there is a 'dialog = None' at the start) MD Dialog will be called. The title, and the text is just text but the title is bigger. The 2 MD FlatButtons are the cancel and the ok buttons, and they both lead to another function which is written below when they are pressed and released. Cancel button leads to the dialog_close function, which basically closes the dialog, and OK will lead to change_screen, which also closes the dialog and changes the current screen back to login screen.
 
@@ -260,6 +266,7 @@ This is the code used for the Home Screen. user_name is uploaded from the LoginS
 #Adding Screen
 class Data_Add(MDScreen):
 
+    #take the inputs in the different textfields, save it into the database and transition to HS
     def try_submit(self):
         category = self.ids.Category.text
         brand = self.ids.Brand.text
@@ -274,10 +281,11 @@ class Data_Add(MDScreen):
         print("Submission")
         self.parent.current = "HomeScreen"
 
+    #transition to HS
     def try_back(self):
         self.parent.current = "HomeScreen"
-
 ```
+This is the code for the screen where the user can input attributes and add them into the users database. The try_submit function first defines different attributes by importing them from the user input in the textfield, and then using database_worker, the database will be connected. Then, the code creates a query with an 'insert into items' and enters the attributes and the values from the definitions we just made. Using run_save, the query will run on the database's console, so that the data will be added. And then the program prints submission on pycharm, then changes the current screen to the Home Screen. The try_back happens when a button is pressed, and it transitions to the Home Screen.
 
 ### Table Screen
 ```.py
@@ -286,6 +294,8 @@ class Data_Check(MDScreen):
 
     data_table = None
 
+    #for later use, used when the table that is shown needs a update
+    #for after deleating data or searching for data
     def update(self):
         db = database_worker("project3db.db")
         query = "SELECT * FROM items"
@@ -293,6 +303,7 @@ class Data_Check(MDScreen):
         db.close()
         self.data_table.update_row_data(None, data)
 
+    #using user input from the textfield, searches for a specific attribute
     def try_search(self):
         if self.ids.searchtext.text:
             db = database_worker("project3db.db")
@@ -304,6 +315,7 @@ class Data_Check(MDScreen):
         else:
             self.update()
 
+    #the row that the user ticked will be removed from the data
     def try_remove(self):
         rows_checked = self.data_table.get_row_checks()
         print(rows_checked)
@@ -315,6 +327,7 @@ class Data_Check(MDScreen):
             db.close()
             self.update()
 
+    #before the screen is shown, the table with data is running
     def on_pre_enter(self, *args):
         self.data_table = MDDataTable(
             size_hint=(.7, .65),
@@ -328,12 +341,15 @@ class Data_Check(MDScreen):
         self.add_widget(self.data_table)
         self.update()
 
+    #needed for MDTable
     def row_pressed(self, table, row):
         pass
 
+    #needed for MDTable
     def check_pressed(self, table, current_row):
         pass
 
+    #transition to HS
     def try_back(self):
         self.parent.current = "HomeScreen"
 ```
@@ -343,8 +359,10 @@ class Data_Check(MDScreen):
 #Login Screen
 class LoginScreen(MDScreen):
 
+    #gets data from user input, searchs the users table
+    #unhashes and checks the password, if username or password does not match, shows the error
+    #transitions to HS
     def try_login(self):
-        print("User trying to login")
         uname = self.ids.uname.text
         passwd = self.ids.passwd.text
         query = f"select * from users where username = '{uname}' or email = '{uname}'"
@@ -354,7 +372,6 @@ class LoginScreen(MDScreen):
         if len(results)==1:
             id, email, hashed, uname = results[0]
             if check_password(user_password=passwd, hashed_password=hashed):
-                print("Login successful")
                 HomeScreen.user_name=uname
                 self.parent.current = "HomeScreen"
             else:
@@ -364,10 +381,11 @@ class LoginScreen(MDScreen):
             self.ids.passwd.error = True
             self.ids.uname.error = True
 
+    #transition to SS
     def try_register(self):
-        print("User trying registration")
         self.parent.current = "SignupScreen"
 
+    #shows or hides the password depending on if it is already hidden or not
     def pass_peak(self):
         if self.ids.passwd.password:
             self.ids.passwd.password = False
@@ -380,6 +398,9 @@ class LoginScreen(MDScreen):
 #Sign up Screen
 class SignupScreen(MDScreen):
 
+    #gets data from the user input, saves it into users
+    #password will be hashed before saving
+    #if password doesn't match, or less then 6 letters, there will be error
     def try_submit(self):
         uname = self.ids.uname.text
         email = self.ids.email.text
@@ -399,16 +420,18 @@ class SignupScreen(MDScreen):
             print("Registration complete")
             self.parent.current = "LoginScreen"
 
+    #transition to LS
     def try_cancel(self):
         self.parent.current = "LoginScreen"
 ```
 
 ### Running the App
 ```.py
+#RUN THE CODE!!!
 class Project3(MDApp):
     def build(self):
         return
-
+        
 test = Project3()
 test.run()
 ```
