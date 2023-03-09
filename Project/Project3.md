@@ -51,11 +51,12 @@ The advantage of using SQLite is that it is very simple and easy to use. SQLite 
 
 ## System Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/System%20Diagram.png)
-**Fig.1** 
+**Fig.1**  
+This system diagram shows that the program gets an input from the keyboard, then the Mac computer uses existing tools to configurate the inputs to create the output which is the GUI screen.
 
 ## Wireframe Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/wireframe.jpg)
-**Fig.2** 
+**Fig.2** This diagram, wireframe diagram 
 
 ## ER Diagram
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/ER.jpg)
