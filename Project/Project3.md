@@ -534,6 +534,7 @@ ScreenManager:
     Data_Check:
         name:"Data_Check"
 ```
+This is where the different screens are defined. Without this, there won't be different screens. Screen Manager is the system in KivyMD that allows us to define different screens, and we have to add names to all of the screens.
 
 ### Login Screen
 ```.py
@@ -562,6 +563,7 @@ ScreenManager:
         MDBoxLayout:
             size_hint: 1,.1
             orientation:"horizontal"
+            
             MDTextField:
                 id:passwd
                 hint_text:"Enter your password"
@@ -570,6 +572,7 @@ ScreenManager:
                 size_hint: .7,1
                 helper_text_mode: "on_error"
                 helper_text: "Username or password is incorrect"
+                
             MDIconButton:
                 icon: 'eye'
                 pos_hint: {"center_x":1,"center_y":.5}
@@ -597,6 +600,20 @@ ScreenManager:
                 pos_hint: {"center_x":.5,"center_y":.6}
                 md_bg_color: "#A5D6E5"
 ```
+
+This is the kv code for the Login Screen. 
+
+**Size**: this is the size of the screen.  
+**Fit image**: this allows the developer to import an image that is in the same file on PyCharm. For this program, this code is used for the stripe background.  
+**MDCard**: Can create a 'box in a box'. Will create a white box which is smaller then the original size of the screen, so that the buttons and texts will be easier to see (because rather than the text being on a 2 color background, it is easier to see with a single colored background). the MD Card here has a size and a position, which is adjusted to make the design look nice, and then the padding is the space between the different objects on the card. It can also have an orientation, which is normally either vertical or horizontal. In here, it is vertical, so that the objects being added on the card will be added from the top to the buttom.  
+**MDLabel**: Adds a label that shows a text on the GUI. It can have size and position, and halign which is centered here, and this centers the text. Also has a font style, which the different text sizes and label styles can be found in the Kivy's official documentation[^6].  
+**MDTextField**: Creates a text field where the user can type in inputs. By adding an id, it will allow the developer to differentiate a specific text field from any other text fields, so that they can be used in the python file. There is also a hint text, which is the text that is on the text field half-clear when there is no input, and then an icon on the left which makes the text field look prettier. The different icons can also be found on the official documentation. Can also have password, which is either true or false, and when it is true the user input will all be stars. Helper text is the one I used for error message. The helper text mode is on error, so when there is an error, the helper text shows up.
+**MDBoxLayout**: It is similar to the MDCard, but it is an inbisible box.
+**Buttons**: MDRaisedButton is a normal button which can have a text on it. This one also has to have id because it will lead to a function on the Python file. The Raised Button here has size, position, a background color which changes the color of the button, so that the colors in the App looks organized. And it also has an on_press, which can tell the kivy to do something when the button is pressed. In here, the button id is login, and when it's pressed, it will run the try_login under the LoginScreen class in 'Project3.py'. MDIconButton is the same, but instead of texts, it has an icon.
+        
+
+[^6]:KivyMD 1.1.1 documentation, https://kivymd.readthedocs.io/en/1.1.1/. Accessed 10 March 2023.
+
 
 ### Signup Screen
 ```.py
@@ -672,6 +689,9 @@ ScreenManager:
                 pos_hint: {"center_x":.5,"center_y":.5}
                 md_bg_color: "#A5D6E5"
 ```
+This is the kv code for the Signup Screen.
+
+All the different components used in this screen is explained above.
 
 ### Home Screen
 ```.py
@@ -741,6 +761,9 @@ ScreenManager:
                 md_bg_color: "#A5D6E5"
                 pos_hint: {"center_x":.5,"center_y":.5}
 ```
+This is the kv code for the Home Screen.
+
+All the different components used in this screen is explained above.
 
 ### Adding Screen
 ```.py
@@ -806,7 +829,7 @@ ScreenManager:
                     id:Condition
                     min: 0
                     max: 10
-                    value: 80
+                    value: 0
                     hint_bg_color: "white"
 
                 MDLabel:
@@ -838,6 +861,9 @@ ScreenManager:
                     pos_hint: {"center_x":1,"center_y":0}
                     md_bg_color: "#A5D6E5"
 ```
+This is the kv code for the Adding Data Screen.
+
+**MDSlider**: In this screen, the user can move the slider and pick a number. It has an id as the number on here will be used in the python file and the database, and the minimum and the maximum number on the slider. The value is the number that will be recorded when there is no input by the user, and the hint background color is the color of the background behind the number shown on the slider. 
 
 ### Table Screen
 ```.py
@@ -893,6 +919,9 @@ ScreenManager:
                 pos_hint: {"center_x":1,"center_y":0}
                 md_bg_color: "#A5D6E5"
 ```
+This is the kv code for the Table Screen.
+
+All the different components used in this screen is explained above.
 
 ## Screen Shots from the app
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Log.png)
