@@ -265,6 +265,8 @@ class HomeScreen(MDScreen):
 ```
 This is the code used for the Home Screen. 
 
+The class Home Screen will create a class for the screen, inheriting the class under MDScreen so that the program knows that the Home Screen class is connected to the GUI Home Screen in the kv file.
+
 user_name is uploaded from the LoginScreen, which then later when the username is sent, on_pre_enter will allow the program to show "Welcome, (username)" on the screen. 
 
 The next 3 functions, add, check and logout are connected to each buttons so when they are pressed, it will move onto a new screen. The logout button is a little bit more complicated than that, as it shows a dialog. The function is saying that if there is no dianog, (that's why there is a 'dialog = None' at the start) MD Dialog will be called. The title, and the text is just text but the title is bigger. The 2 MD FlatButtons are the cancel and the ok buttons, and they both lead to another function which is written below when they are pressed and released. 
@@ -295,6 +297,9 @@ class Data_Add(MDScreen):
     def try_back(self):
         self.parent.current = "HomeScreen"
 ```
+
+As well as the Home Screen, the Data_Add will be made into a class, inherited under MDScreen.
+
 This is the code for the screen where the user can input attributes and add them into the users database. 
 
 The try_submit function first defines different attributes by importing them from the user input in the textfield, and then using database_worker, the database will be connected. Then, the code creates a query with an 'insert into items' and enters the attributes and the values from the definitions we just made. Using run_save, the query will run on the database's console, so that the data will be added. And then the program prints submission on pycharm, then changes the current screen to the Home Screen. 
@@ -367,6 +372,9 @@ class Data_Check(MDScreen):
     def try_back(self):
         self.parent.current = "HomeScreen"
 ```
+This is the code for the Table Screen.
+
+The screen Data_Check will be a class inherited under MDScreen.
 
 ### Login Sreeen
 ```.py
@@ -408,6 +416,8 @@ class LoginScreen(MDScreen):
 ```
 This is the code for the login screen. 
 
+The screen Login Screen will be a class inherited under MDScreen.
+
 When the user presses the login button, the program will run the function try_login. try_login will collect the user input and make them into a variable. Then the database_worker will open the connection between PyCharm and the SQLite database, and using the query, db.search will return a result. The result that is returned will be where the username is the same as the user input (username or email). If there is an account, the database searcher will return the matched account, if not, there will be nothing returned. Therefore, the next statement will be an if statement, and if there is 1 result, it will check for the password. This means that if there is no result, the number of results will be 0, and the function will be running a error. If the user passes this, the function then takes the different values from the database. Another if statement will use a check_password function to compare the input password (user_password) and the password on the database (hashed_password) by unhashing the hashed password. If they are different, it will show another error message. If they match, the program then changes the current screen to Home Screen, which will mean that the user has successfully logged into the App. 
 
 The try_register is the function for when the user pressess the register button. This will change the current screen to the Signup Screen.
@@ -446,6 +456,8 @@ class SignupScreen(MDScreen):
         self.parent.current = "LoginScreen"
 ```
 This is the code for the sing up screen. 
+
+The screen Signup Screen will be a class inherited under MDScreen.
 
 try_submit is the funtion that happens when the submit button for creating an account is pressed, and first, it will collect inputs from the textfields. Firts, using an if statement, the program checks if the first password is the same as the confirmed password. if it is different, it shows an error message. If it is the same, an elif statement will check if the password has more than 6 letters. If not, it shows another error message. If the user input passes both of those if statements, the program will use encrypt_password function to create a hash for the password that the user has input. Then, the program uses database_worker to connect to the database. The query will be inserting the email, username and the hash, which is the hashed password, and then run_save will save the values into the users table of the database. After the conneciton to the database is cut, Pycharm will print that the registaration is complete, and will go back to the Login Screen. 
 
