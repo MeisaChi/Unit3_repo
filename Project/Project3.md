@@ -1,7 +1,7 @@
 # Unit 3: ISAK Free Store App
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/maxresdefault.jpeg)
-“I Opened The World's First FREE Store.” YouTube, 15 June 2019, https://www.youtube.com/watch?v=n6qc4LHN2KQ. Accessed 10 March 2023.
+*“I Opened The World's First FREE Store.”* YouTube, 15 June 2019, https://www.youtube.com/watch?v=n6qc4LHN2KQ. Accessed 10 March 2023.
 
 
 ## Criteria A: Planning
