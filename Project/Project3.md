@@ -1,4 +1,9 @@
 # Unit 3: ISAK Free Store App
+
+
+“I Opened The World's First FREE Store.” YouTube, 15 June 2019, https://www.youtube.com/watch?v=n6qc4LHN2KQ. Accessed 10 March 2023.
+
+
 ## Criteria A: Planning
 
 ## Problem definition
@@ -152,9 +157,15 @@ The data of the different user information and item information will be stored i
 | 30 | Draw a flow diagram for Table Screen | Completed flow diagram 5/5 | 20min | Mar 5 | B |
 | 31 | Take screen shots of different pages, upload them into github | Screenshots | 10min | Mar 6 | C |
 | 32 | Write descriptions for pictures in github | Descriptions | 20min | Mar 7 | B |
-| 33 | Write descriptions for python codes | Descriptions | 2hr | Mar 7 | C |
-| 34 | Write descriptions for kivy codes | Descriptions | 1hr | Mar 8 | C |
-
+| 33 | Write descriptions for python codes 1/2 | Descriptions | 2hr | Mar 7 | C |
+| 34 | Write descriptions for python codes 2/2 | Descriptions | 2hr | Mar 8 | C |
+| 35 | Write descriptions for kivy codes 1/2 | Descriptions | 1hr | Mar 9 | C |
+| 36 | Write descriptions for kivy codes 2/2 | Descriptions | 1hr | Mar 9 | C |
+| 37 | Add notes on the python file, update them on github | updated descriptions with notes | 1hr | Mar 10 | C |
+| 38 | Check everything on github | A completed github | 30min | Mar 10 | D |
+| 39 | Take the video | A completed video explaning the App | 15min | Mar 10 | D |
+| 40 | Add a heading picture on github | Heading picture on the top of github | 5min | Mar 10 | A |
+| 41 | Add citation for picture | Finished Citation | 5min | Mar 10 | A |
 
 # Criteria C: Development
 ## Existing tools
@@ -607,7 +618,7 @@ This is the kv code for the Login Screen.
 **Fit image**: this allows the developer to import an image that is in the same file on PyCharm. For this program, this code is used for the stripe background.  
 **MDCard**: Can create a 'box in a box'. Will create a white box which is smaller then the original size of the screen, so that the buttons and texts will be easier to see (because rather than the text being on a 2 color background, it is easier to see with a single colored background). the MD Card here has a size and a position, which is adjusted to make the design look nice, and then the padding is the space between the different objects on the card. It can also have an orientation, which is normally either vertical or horizontal. In here, it is vertical, so that the objects being added on the card will be added from the top to the buttom.  
 **MDLabel**: Adds a label that shows a text on the GUI. It can have size and position, and halign which is centered here, and this centers the text. Also has a font style, which the different text sizes and label styles can be found in the Kivy's official documentation[^6].  
-**MDTextField**: Creates a text field where the user can type in inputs. By adding an id, it will allow the developer to differentiate a specific text field from any other text fields, so that they can be used in the python file. There is also a hint text, which is the text that is on the text field half-clear when there is no input, and then an icon on the left which makes the text field look prettier. The different icons can also be found on the official documentation. Can also have password, which is either true or false, and when it is true the user input will all be stars. Helper text is the one I used for error message. The helper text mode is on error, so when there is an error, the helper text shows up.
+**MDTextField**: Creates a text field where the user can type in inputs. By adding an id, it will allow the developer to differentiate a specific text field from any other text fields, so that they can be used in the python file. There is also a hint text, which is the text that is on the text field half-clear when there is no input, and then an icon on the left which makes the text field look prettier. The different icons can also be found on the official documentation[^6]. Can also have password, which is either true or false, and when it is true the user input will all be stars. Helper text is the one I used for error message. The helper text mode is on error, so when there is an error, the helper text shows up.
 **MDBoxLayout**: It is similar to the MDCard, but it is an inbisible box.
 **Buttons**: MDRaisedButton is a normal button which can have a text on it. This one also has to have id because it will lead to a function on the Python file. The Raised Button here has size, position, a background color which changes the color of the button, so that the colors in the App looks organized. And it also has an on_press, which can tell the kivy to do something when the button is pressed. In here, the button id is login, and when it's pressed, it will run the try_login under the LoginScreen class in 'Project3.py'. MDIconButton is the same, but instead of texts, it has an icon.
         
