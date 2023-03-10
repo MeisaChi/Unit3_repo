@@ -71,23 +71,23 @@ This is a UML Diagram of the tables and it's attributes.
 This is a UML diagram of the OOP classes used in the app. It shows the different classes and it's properties.
 
 ## Flow diagrams
-![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/LoginScreen.jpg)
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/LoginScreen_flow.jpg)
 **Fig.6**
 Flow diagram for the login screen
 
-![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SignupScreen.jpg)
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SignupScreen_flow.jpg)
 **Fig.7**
 Flow diagram for the Signup screen
 
-![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/HomeScreen.jpg)
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/HomeScreen_flow.jpg)
 **Fig.8**
 Flow diagram for the Home screen
 
-![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/Data_Add.jpg)
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/Data_Add_flow.jpg)
 **Fig.9**
 Flow diagram for the Adding data screen
 
-![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/Data_Check.jpg)
+![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/Data_Check_flow.jpg)
 **Fig.10**
 Flow diagram for the Table screen
 
