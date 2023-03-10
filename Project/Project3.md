@@ -177,7 +177,9 @@ from secure_password import encrypt_password, check_password
 from kivymd.uix.button import MDFlatButton
 from kivymd.uix.dialog import MDDialog
 ```
-This is the items that are imported into the python file. Most of them are from KivyMD, any extra components that I wanted to use. SQLite3 allows the program to connect to the database. Math is used for rounding (used later in sliders), and secure password is another file used for hashing and unhashing, checking the password.
+This is the items that are imported into the python file.
+
+Most of them are from KivyMD, any extra components that I wanted to use. SQLite3 allows the program to connect to the database. Math is used for rounding (used later in sliders), and secure password is another file used for hashing and unhashing, checking the password.
 
 ### Database worker
 ```.py
@@ -199,7 +201,9 @@ class database_worker:
     def close(self):
         self.connection.close()**
 ```
-This is the python code that actually connects the database into the python file. Connection and cursor allows us to directly connect to the database, search is used for finding and bringing data from the database, save is for adding and uploading any data into the database, and close is for ending the connection between the python file and the database.
+This is the python code that actually connects the database into the python file. 
+
+Connection and cursor allows us to directly connect to the database, search is used for finding and bringing data from the database, save is for adding and uploading any data into the database, and close is for ending the connection between the python file and the database.
 
 ### Home Screen
 ```.py
@@ -259,7 +263,13 @@ class HomeScreen(MDScreen):
         self.dialog.dismiss(force=True)
         self.parent.current="LoginScreen"
 ```
-This is the code used for the Home Screen. user_name is uploaded from the LoginScreen, which then later when the username is sent,  on_pre_enter will allow the program to show "Welcome, (username)" on the screen. The next 3 functions, add, check and logout are connected to each buttons so when they are pressed, it will move onto a new screen. The logout button is a little bit more complicated than that, as it shows a dialog. The function is saying that if there is no dianog, (that's why there is a 'dialog = None' at the start) MD Dialog will be called. The title, and the text is just text but the title is bigger. The 2 MD FlatButtons are the cancel and the ok buttons, and they both lead to another function which is written below when they are pressed and released. Cancel button leads to the dialog_close function, which basically closes the dialog, and OK will lead to change_screen, which also closes the dialog and changes the current screen back to login screen.
+This is the code used for the Home Screen. 
+
+user_name is uploaded from the LoginScreen, which then later when the username is sent, on_pre_enter will allow the program to show "Welcome, (username)" on the screen. 
+
+The next 3 functions, add, check and logout are connected to each buttons so when they are pressed, it will move onto a new screen. The logout button is a little bit more complicated than that, as it shows a dialog. The function is saying that if there is no dianog, (that's why there is a 'dialog = None' at the start) MD Dialog will be called. The title, and the text is just text but the title is bigger. The 2 MD FlatButtons are the cancel and the ok buttons, and they both lead to another function which is written below when they are pressed and released. 
+
+Cancel button leads to the dialog_close function, which basically closes the dialog, and OK will lead to change_screen, which also closes the dialog and changes the current screen back to login screen.
 
 ### Adding Screen
 ```.py
@@ -285,7 +295,11 @@ class Data_Add(MDScreen):
     def try_back(self):
         self.parent.current = "HomeScreen"
 ```
-This is the code for the screen where the user can input attributes and add them into the users database. The try_submit function first defines different attributes by importing them from the user input in the textfield, and then using database_worker, the database will be connected. Then, the code creates a query with an 'insert into items' and enters the attributes and the values from the definitions we just made. Using run_save, the query will run on the database's console, so that the data will be added. And then the program prints submission on pycharm, then changes the current screen to the Home Screen. The try_back happens when a button is pressed, and it transitions to the Home Screen.
+This is the code for the screen where the user can input attributes and add them into the users database. 
+
+The try_submit function first defines different attributes by importing them from the user input in the textfield, and then using database_worker, the database will be connected. Then, the code creates a query with an 'insert into items' and enters the attributes and the values from the definitions we just made. Using run_save, the query will run on the database's console, so that the data will be added. And then the program prints submission on pycharm, then changes the current screen to the Home Screen. 
+
+The try_back happens when a button is pressed, and it transitions to the Home Screen.
 
 ### Table Screen
 ```.py
@@ -392,6 +406,13 @@ class LoginScreen(MDScreen):
         else:
             self.ids.passwd.password = True
 ```
+This is the code for the login screen. 
+
+When the user presses the login button, the program will run the function try_login. try_login will collect the user input and make them into a variable. Then the database_worker will open the connection between PyCharm and the SQLite database, and using the query, db.search will return a result. The result that is returned will be where the username is the same as the user input (username or email). If there is an account, the database searcher will return the matched account, if not, there will be nothing returned. Therefore, the next statement will be an if statement, and if there is 1 result, it will check for the password. This means that if there is no result, the number of results will be 0, and the function will be running a error. If the user passes this, the function then takes the different values from the database. Another if statement will use a check_password function to compare the input password (user_password) and the password on the database (hashed_password) by unhashing the hashed password. If they are different, it will show another error message. If they match, the program then changes the current screen to Home Screen, which will mean that the user has successfully logged into the App. 
+
+The try_register is the function for when the user pressess the register button. This will change the current screen to the Signup Screen.
+
+The pass_peak function will be a function that connects to a eye icon button located next to where the user inputs the password. When the user presses the eye, the function runs an if statement. It will check if self.ids.passwd.password is on (passwd is the id for the textfield, password is the feature that hides the password and change the letters into stars). If it is on, it will change the hiding password into False, which will show the password. Else, if the hiding password is not on, it will turn the feature on, which will hide the password.
 
 ### Signup Screen
 ```.py
@@ -424,6 +445,11 @@ class SignupScreen(MDScreen):
     def try_cancel(self):
         self.parent.current = "LoginScreen"
 ```
+This is the code for the sing up screen. 
+
+try_submit is the funtion that happens when the submit button for creating an account is pressed, and first, it will collect inputs from the textfields. Firts, using an if statement, the program checks if the first password is the same as the confirmed password. if it is different, it shows an error message. If it is the same, an elif statement will check if the password has more than 6 letters. If not, it shows another error message. If the user input passes both of those if statements, the program will use encrypt_password function to create a hash for the password that the user has input. Then, the program uses database_worker to connect to the database. The query will be inserting the email, username and the hash, which is the hashed password, and then run_save will save the values into the users table of the database. After the conneciton to the database is cut, Pycharm will print that the registaration is complete, and will go back to the Login Screen. 
+
+The try_cancel is another function connected to a button, which is the cancel button. This function changes the current screen to Login Screen.
 
 ### Running the App
 ```.py
@@ -435,6 +461,11 @@ class Project3(MDApp):
 test = Project3()
 test.run()
 ```
+This is the code in the end of the python file.
+
+It is the code to run the program. First, the name of the kv file (Project3) is defined and connected to MDApp, which is imported. And then as the code can tell, the build function will build the app and return it as an output. 
+
+And then the 2 lines in the end will run the whole program, and as an output a GUI screen will show up.
 
 ## KivyMD Code
 
