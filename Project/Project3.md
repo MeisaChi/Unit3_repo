@@ -78,23 +78,28 @@ This is a UML diagram of the OOP classes used in the app. It shows the different
 ## Flow diagrams
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/LoginScreen_flow.jpg)
 **Fig.6**
-Flow diagram for the login screen
+*Flow diagram for the login screen.*  
+Shows how the different function in the Login Screen starts, what it does and how it ends.
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SignupScreen_flow.jpg)
 **Fig.7**
-Flow diagram for the Signup screen
+*Flow diagram for the Signup screen.*  
+Shows how the different function in the Signup Screen starts, what it does and how it ends.
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/HomeScreen_flow.jpg)
 **Fig.8**
-Flow diagram for the Home screen
+*Flow diagram for the Home screen.*  
+Shows how the different function in the Home Screen starts, what it does and how it ends.
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/Data_Add_flow.jpg)
 **Fig.9**
-Flow diagram for the Adding data screen
+*Flow diagram for the Adding Data screen.*  
+Shows how the different function in the Adding Data Screen starts, what it does and how it ends.
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/Data_Check_flow.jpg)
 **Fig.10**
-Flow diagram for the Table screen
+*Flow diagram for the Table screen.*  
+Shows how the different function in the Table Screen starts, what it does and how it ends.
 
 ## Database Storage 
 The data of the different user information and item information will be stored in a SQLite database 'project3db.db'.  
@@ -937,27 +942,27 @@ All the different components used in this screen is explained above.
 ## Screen Shots from the app
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Log.png)
 **Fig.11**
-Login Screen
+*Login Screen*
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Reg.png)
 **Fig.12**
-Signup Screen
+*Signup Screen*
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Home.png)
 **Fig.13**
-Home Screen
+*Home Screen*
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_pop.png)
 **Fig.14**
-Pop up for when the user is logging out
+*Pop up for when the user is logging out*
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Add.png)
 **Fig.15**
-Adding items Screen
+*Adding items Screen*
 
 ![](https://github.com/MeisaChi/Unit3_repo/blob/main/Project/Pics/SS_Tab.png)
 **Fig.16**
-Table Screen
+*Table Screen*
 
 # Criteria D: Functionality
 ## Video
