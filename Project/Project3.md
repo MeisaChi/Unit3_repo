@@ -205,6 +205,30 @@ This is the python code that actually connects the database into the python file
 
 Connection and cursor allows us to directly connect to the database, search is used for finding and bringing data from the database, save is for adding and uploading any data into the database, and close is for ending the connection between the python file and the database.
 
+### Hashing the password
+```.py
+from passlib.hash import sha256_crypt
+
+# Create an object of the class CyptContect
+hasher = sha256_crypt.using(rounds=30000)
+#recieves the password and returns the hash
+def encrypt_password(user_password):
+    return hasher.hash(user_password)
+
+def check_password(hashed_password, user_password):
+    return hasher.verify(user_password, hashed_password)
+
+hash = encrypt_password("password123")
+print(hash)
+```
+This is on another file, secure_password.py. first, it starts with importing sha256_crypt from passlib.hash which is the library that allows the user to use a hashing system. hasher will be the value for the password that is hashed. 
+
+encrypt_password will take an input value 'user_password', and it will return hasher.hash which means that it will return a hashed password.
+
+check_password will take 2 inputs, hashed_password and user_password, and then using verify from the library, it will compared the hashed password and the user password (the user input and the password in the database)
+
+The last code is made for testing the hashing system, because we have to see if it is securely hashed.
+
 ### Home Screen
 ```.py
 #Home Screen
@@ -376,6 +400,17 @@ This is the code for the Table Screen.
 
 The screen Data_Check will be a class inherited under MDScreen.
 
+the first funcion on the code here is update. This function will be used several times in this screen, when the table shown on the screen has to be updated.
+Using the database worker, the function connects to the database. The query will be selecting all items, and using db.search, the function will select all the items, then closes the database. Then using the function from MDDataTable, the function will insert the data from the database into  the table that will be shown.
+
+try_search will let the user search for a specific attribute. The function runs when the user presses the magnifying glass which is a Icon button. First, the if statement will check if there is an input in the search textfield. If there is no input, the program will return self.update, which means that everything on the items database will be shown. If there is an input, the program will connect to the database worker. It will create a value called searchword, which will be taken from the search textfield and then, the query will be select the items where any of the attributes except for the id has the same value as the searchword. The db.search will then use the query to get an output as 'data', and then that will be shown using the update_row_data from MD Data table.
+ 
+try_remove is the function for removing/taking item from the freestore. The MDDataTable shown on the screen will have check boxes. get_row_checks will identify the row that it checked, and then the values in the ticked row will be saved as 'rows_checked' as a list. Then using an for loop, the function will then find the id of the ticked row. As rows_checked is a list, and the id is the first component in the list, id = r[0] will accurately take the id value. Then, the query will delete the item where the id is same as the value id, and the run_save will save that change. Then the function ends with closing the database, and updating the table.
+
+on_pre_enter runs before the screen is shown. This is where the acctual table will be created. The size and the position is adjusted for the screen, and then check=True will allow the user to use a ckeck box on the table. column_data will be the list of the name of the columns, and the number is the size that each column needs. For the function to use the row checking system, the code underneath is there, and then after the process in done, the function uses self.update to create and show the table.
+
+try_back runs when the return button is pressed, and it changes the current screen to Home Screen.
+
 ### Login Sreeen
 ```.py
 #Login Screen
@@ -418,7 +453,7 @@ This is the code for the login screen.
 
 The screen Login Screen will be a class inherited under MDScreen.
 
-When the user presses the login button, the program will run the function try_login. try_login will collect the user input and make them into a variable. Then the database_worker will open the connection between PyCharm and the SQLite database, and using the query, db.search will return a result. The result that is returned will be where the username is the same as the user input (username or email). If there is an account, the database searcher will return the matched account, if not, there will be nothing returned. Therefore, the next statement will be an if statement, and if there is 1 result, it will check for the password. This means that if there is no result, the number of results will be 0, and the function will be running a error. If the user passes this, the function then takes the different values from the database. Another if statement will use a check_password function to compare the input password (user_password) and the password on the database (hashed_password) by unhashing the hashed password. If they are different, it will show another error message. If they match, the program then changes the current screen to Home Screen, which will mean that the user has successfully logged into the App. 
+When the user presses the login button, the program will run the function try_login. try_login will collect the user input and make them into a variable. Then the database_worker will open the connection between PyCharm and the SQLite database, and using the query, db.search will return a result. The result that is returned will be where the username is the same as the user input (username or email). If there is an account, the database searcher will return the matched account, if not, there will be nothing returned. Therefore, the next statement will be an if statement, and if there is 1 result, it will check for the password. This means that if there is no result, the number of results will be 0, and the function will be running a error. If the user passes this, the function then takes the different values from the database. Another if statement will use a check_password function to compare the input password (user_password) and the password on the database (hashed_password) by unhashing the hashed password. If they are different, it will show another error message. If they match, the program then changes the current screen to Home Screen, which will mean that the user has successfully logged into the App. It will also change the value of the variable 'user_name' which is in Home Screen, which will allow the user to see a welcome message with their username.
 
 The try_register is the function for when the user pressess the register button. This will change the current screen to the Signup Screen.
 
